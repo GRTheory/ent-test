@@ -15,9 +15,9 @@ type User struct {
 func (User) Fields() []ent.Field {
 	return []ent.Field{
 		field.Int("age").
-		Positive(),
+			Positive(),
 		field.String("name").
-		Default("unknow"),
+			Default("unknow"),
 	}
 }
 
@@ -25,5 +25,10 @@ func (User) Fields() []ent.Field {
 func (User) Edges() []ent.Edge {
 	return []ent.Edge{
 		edge.To("cars", Car.Type),
+		// create an inverse-edge called "groups" of type `Group`
+		// and reference it to the "users" edge (in Group shema)
+		// explicitly using the `Ref` method.
+		edge.From("groups", Group.Type).
+			Ref("users"),
 	}
 }
