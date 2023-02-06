@@ -2,7 +2,10 @@ module github.com/GRTheory/ent-test
 
 go 1.20
 
-require entgo.io/ent v0.11.7
+require (
+	entgo.io/ent v0.11.7
+	github.com/go-sql-driver/mysql v1.7.0
+)
 
 require (
 	ariga.io/atlas v0.9.1-0.20230119145809-92243f7c55cb // indirect
